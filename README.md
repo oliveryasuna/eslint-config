@@ -1,5 +1,7 @@
 # @oliveryasuna/eslint-config
 
+[![npm](https://img.shields.io/npm/v/@oliveryasuna/eslint-config?logo=npm)](https://www.npmjs.com/package/@oliveryasuna/eslint-config)
+
 An ESLint flat config for TypeScript, JavaScript, and the data formats around
 them. Structurally derived from [`@antfu/eslint-config`][antfu] `9.3.0`, then
 rewritten around one rule: **nothing is inferred.**
