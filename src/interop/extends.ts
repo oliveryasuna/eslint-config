@@ -79,11 +79,46 @@ const withoutRulePrefixes = ((
   prefixes: string[]
 ): Partial<RuleOptions> => Object.fromEntries(Object.entries(rules).filter(([ruleId]) => !prefixes.some(p => ruleId.startsWith(`${p}/`)))));
 
+/**
+ * Rewrites rule-id prefixes, e.g. `vitest/no-focused-tests` ->
+ * `test/no-focused-tests`.
+ *
+ * Needed when a module registers a plugin under a name other than the one the
+ * plugin's own presets spell their rules with: the ids in a borrowed preset
+ * name the plugin's published prefix, and a rule naming an unregistered plugin
+ * is a hard ESLint startup error, not a skipped rule.
+ *
+ * Prefixes are matched whole rather than by splitting on the last `/`, so ids
+ * whose rule name itself contains a slash (`n/prefer-global/process`) survive
+ * intact.
+ */
+const renameRulePrefixes = ((
+  rules: Partial<RuleOptions>,
+  map: Record<string, string>
+): Partial<RuleOptions> => {
+  const out: Record<string, unknown> = {};
+
+  for(const [
+    ruleId,
+    entry
+  ] of Object.entries(rules)) {
+    const from = Object.keys(map).find(prefix => ruleId.startsWith(`${prefix}/`));
+    const to = (from ? map[from] : undefined);
+
+    out[((from !== undefined) && (to !== undefined))
+      ? `${to}/${ruleId.slice(from.length + 1)}`
+      : ruleId] = entry;
+  }
+
+  return out;
+});
+
 export {
   asConfigArray,
   scopeTo,
   mergeRules,
   pickRules,
   stripPlugins,
-  withoutRulePrefixes
+  withoutRulePrefixes,
+  renameRulePrefixes
 };

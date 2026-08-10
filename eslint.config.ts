@@ -9,7 +9,8 @@ export default defineConfig(
       '*git-ignore*',
       '.tsbuild',
       'generated',
-      'RULES.md'
+      'RULES.md',
+      'README.md'
     ]),
     overlays: [
       DTS_OVERLAY,

@@ -16,9 +16,8 @@ const EDITOR_ENV_VARS: string[] = [
  */
 const EDITOR_UNFIXABLE_RULES: string[] = [
   'prefer-const',
-  'test/no-only-tests',
-  'unused-imports/no-unused-imports',
-  'vitest/no-only-tests'
+  'test/no-focused-tests',
+  'unused-imports/no-unused-imports'
 ];
 
 const isInGitHooksOrLintStaged = ((): boolean =>

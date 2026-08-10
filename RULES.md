@@ -5,16 +5,16 @@
 
 # Rule Inventory
 
-596 distinct rules are referenced across 4 presets.
+595 distinct rules are referenced across 4 presets.
 
 ## Summary
 
 | Preset | Configs | Rules on | `error` | `warn` | Explicitly off |
 | --- | --- | --- | --- | --- | --- |
-| `minimal` | 13 | 171 | 161 | 10 | 8 |
-| `recommended` | 29 | 478 | 433 | 45 | 102 |
-| `strict` | 30 | 489 | 444 | 45 | 107 |
-| `library` | 30 | 489 | 444 | 45 | 107 |
+| `minimal` | 13 | 170 | 160 | 10 | 8 |
+| `recommended` | 29 | 477 | 432 | 45 | 102 |
+| `strict` | 30 | 488 | 443 | 45 | 107 |
+| `library` | 30 | 488 | 443 | 45 | 107 |
 
 ## Rules
 
@@ -22,7 +22,7 @@ Severity shown is the last entry in config order. Rules marked `scoped` are
 only set inside configs restricted by `files` or `ignores`, so the severity
 applies to those globs rather than the whole project.
 
-492 enabled rule(s) have no entry in `src/meta/notes.ts`.
+491 enabled rule(s) have no entry in `src/meta/notes.ts`.
 
 | Rule | Module | Scope | `minimal` | `recommended` | `strict` | `library` | Note |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -385,24 +385,23 @@ applies to those globs rather than the whole project.
 | `@stylistic/type-named-tuple-spacing` | stylistic | scoped | — | `error` | `error` | `error` |  |
 | `@stylistic/wrap-iife` | stylistic | scoped | — | `error` | `error` | `error` |  |
 | `@stylistic/yield-star-spacing` | stylistic | scoped | — | `error` | `error` | `error` |  |
-| `test/no-only-tests` | test | scoped | `error` | `error` | `error` | `error` |  |
-| `vitest/expect-expect` | test | scoped | `error` | `error` | `error` | `error` |  |
-| `vitest/no-commented-out-tests` | test | scoped | `error` | `error` | `error` | `error` |  |
-| `vitest/no-conditional-expect` | test | scoped | `error` | `error` | `error` | `error` |  |
-| `vitest/no-disabled-tests` | test | scoped | `warn` | `warn` | `warn` | `warn` |  |
-| `vitest/no-focused-tests` | test | scoped | `error` | `error` | `error` | `error` |  |
-| `vitest/no-identical-title` | test | scoped | `error` | `error` | `error` | `error` |  |
-| `vitest/no-import-node-test` | test | scoped | `error` | `error` | `error` | `error` |  |
-| `vitest/no-interpolation-in-snapshots` | test | scoped | `error` | `error` | `error` | `error` |  |
-| `vitest/no-mocks-import` | test | scoped | `error` | `error` | `error` | `error` |  |
-| `vitest/no-standalone-expect` | test | scoped | `error` | `error` | `error` | `error` |  |
-| `vitest/no-unneeded-async-expect-function` | test | scoped | `error` | `error` | `error` | `error` |  |
-| `vitest/prefer-called-exactly-once-with` | test | scoped | `error` | `error` | `error` | `error` |  |
-| `vitest/require-local-test-context-for-concurrent-snapshots` | test | scoped | `error` | `error` | `error` | `error` |  |
-| `vitest/valid-describe-callback` | test | scoped | `error` | `error` | `error` | `error` |  |
-| `vitest/valid-expect` | test | scoped | `error` | `error` | `error` | `error` |  |
-| `vitest/valid-expect-in-promise` | test | scoped | `error` | `error` | `error` | `error` |  |
-| `vitest/valid-title` | test | scoped | `error` | `error` | `error` | `error` |  |
+| `test/expect-expect` | test | scoped | `error` | `error` | `error` | `error` |  |
+| `test/no-commented-out-tests` | test | scoped | `error` | `error` | `error` | `error` |  |
+| `test/no-conditional-expect` | test | scoped | `error` | `error` | `error` | `error` |  |
+| `test/no-disabled-tests` | test | scoped | `warn` | `warn` | `warn` | `warn` |  |
+| `test/no-focused-tests` | test | scoped | `error` | `error` | `error` | `error` |  |
+| `test/no-identical-title` | test | scoped | `error` | `error` | `error` | `error` |  |
+| `test/no-import-node-test` | test | scoped | `error` | `error` | `error` | `error` |  |
+| `test/no-interpolation-in-snapshots` | test | scoped | `error` | `error` | `error` | `error` |  |
+| `test/no-mocks-import` | test | scoped | `error` | `error` | `error` | `error` |  |
+| `test/no-standalone-expect` | test | scoped | `error` | `error` | `error` | `error` |  |
+| `test/no-unneeded-async-expect-function` | test | scoped | `error` | `error` | `error` | `error` |  |
+| `test/prefer-called-exactly-once-with` | test | scoped | `error` | `error` | `error` | `error` |  |
+| `test/require-local-test-context-for-concurrent-snapshots` | test | scoped | `error` | `error` | `error` | `error` |  |
+| `test/valid-describe-callback` | test | scoped | `error` | `error` | `error` | `error` |  |
+| `test/valid-expect` | test | scoped | `error` | `error` | `error` | `error` |  |
+| `test/valid-expect-in-promise` | test | scoped | `error` | `error` | `error` | `error` |  |
+| `test/valid-title` | test | scoped | `error` | `error` | `error` | `error` |  |
 | `spaced-comment` | toml | scoped | — | — | — | — |  |
 | `toml/no-unreadable-number-separator` | toml | scoped | `error` | `error` | `error` | `error` |  |
 | `toml/precision-of-fractional-seconds` | toml | scoped | `error` | `error` | `error` | `error` |  |

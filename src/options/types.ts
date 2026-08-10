@@ -172,10 +172,19 @@ interface OptionsReact extends OptionsFiles, OptionsOverrides {
 }
 
 interface OptionsTest extends OptionsFiles, OptionsOverrides {
+  /**
+   * `vitest` and `jest` register their plugin under the neutral `test` prefix,
+   * so rule ids survive a change of framework. `node` registers no plugin —
+   * `node:test` has none worth depending on — and contributes only the test
+   * file scope and the overrides slot.
+   * @default 'vitest'
+   */
   framework?: ('vitest' | 'jest' | 'node');
+
   /**
    * Severity for focused tests. Kept separate because it is the one rule whose
-   * correct severity differs between local editing and CI.
+   * correct severity differs between local editing and CI. Not applied when
+   * `framework` is `node`, which has no rule to attach it to.
    */
   noOnly?: Severity;
 }
