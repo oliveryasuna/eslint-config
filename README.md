@@ -174,6 +174,50 @@ preferring one. `tsconfigRootDir` anchors to your config file's directory, never
 `process.cwd()` — otherwise type-aware linting would depend on where the command
 was invoked from.
 
+`projectService` is the default when `typeAware` is true, so it rarely needs to
+be written out.
+
+#### Multiple tsconfigs
+
+TypeScript's project service finds the **nearest `tsconfig.json`** for each file.
+Everything below follows from that one fact.
+
+**A root config that `references` the others — nothing to configure.**
+
+```
+tsconfig.json          → { "files": [], "references": [{ "path": "./tsconfig.lib.json" },
+                                                       { "path": "./tsconfig.test.json" }] }
+tsconfig.lib.json      → { "compilerOptions": { "composite": true }, "include": ["src/**/*.ts"] }
+tsconfig.test.json     → { "compilerOptions": { "composite": true }, "include": ["test/**/*.ts"] }
+```
+
+```ts
+typescript: {typeAware: true, tsconfigRootDir: import.meta.dirname}
+```
+
+The service finds `tsconfig.json` and follows its references, so files in both
+projects are type-checked. `composite: true` is required — project references
+demand it anyway.
+
+**A monorepo with one `tsconfig.json` per package — also nothing to configure.**
+Each file's nearest config is its own package's.
+
+**Named configs that nothing references** — a bare `tsconfig.test.json` beside an
+unrelated `tsconfig.json` — are invisible to the service, and files matched only
+by them fail with `was not found by the project service`. Two fixes:
+
+```ts
+// Name them explicitly, via the legacy strategy
+typescript: {typeAware: true, project: ['./tsconfig.json', './tsconfig.test.json']}
+
+// Or let the stragglers fall back to the default project
+typescript: {typeAware: true, projectService: {allowDefaultProject: ['test/*.ts']}}
+```
+
+Prefer the first for whole directories. The default project is capped by
+`maximumDefaultProjectFileMatchCount`, so `allowDefaultProject` suits a handful
+of loose files, not a tree.
+
 ## Overlays
 
 Path-scoped rule relaxations, expressed as data. Nothing is applied by default.
