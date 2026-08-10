@@ -218,6 +218,52 @@ Prefer the first for whole directories. The default project is capped by
 `maximumDefaultProjectFileMatchCount`, so `allowDefaultProject` suits a handful
 of loose files, not a tree.
 
+#### Monorepos
+
+Give each package its own `eslint.config.ts`. Anchoring to `import.meta.dirname`
+is what keeps a package's type-aware linting bound to that package's tsconfigs:
+
+```ts
+// packages/<name>/eslint.config.ts
+import {defineConfig} from '@oliveryasuna/eslint-config';
+
+export default defineConfig({
+  typescript: {typeAware: true, tsconfigRootDir: import.meta.dirname}
+});
+```
+
+Three things follow from that layout.
+
+**Run ESLint inside each package.** Flat config does not cascade into
+subdirectories — ESLint looks for one config at or above the working directory
+and never discovers the per-package ones. From the repository root it fails
+outright rather than falling back. Task runners that already execute per package
+(turbo, nx, workspace scripts) do the right thing by default.
+
+**Each package's own tsconfig layout applies unchanged.** A package carrying
+`tsconfig.json` + `tsconfig.lib.json` + `tsconfig.test.json`, with the root
+referencing the other two, needs nothing beyond the config above; so does a
+package with a single plain `tsconfig.json`. Packages may differ from each other.
+
+**Give `eslint.config.ts` a home.** When every tsconfig scopes itself to `src`
+or `test`, the config file belongs to none of them, and type-aware linting stops
+on it:
+
+```
+Parsing error: packages/core/eslint.config.ts was not found by the project service
+```
+
+Add a fourth referenced project for it:
+
+```jsonc
+// tsconfig.json  →  references: [lib, test, config]
+// tsconfig.config.json
+{"compilerOptions": {"composite": true}, "include": ["*.config.ts"]}
+```
+
+`projectService: {allowDefaultProject: ['eslint.config.ts']}` also works, but the
+referenced project is exact and does not spend the default-project budget.
+
 ## Overlays
 
 Path-scoped rule relaxations, expressed as data. Nothing is applied by default.
