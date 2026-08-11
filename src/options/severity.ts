@@ -77,6 +77,7 @@ const applySeverity = ((
     entry
   ]) => [
     rule,
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- Correct.
     severity(rule, (entry as RuleEntry))
   ])));
 

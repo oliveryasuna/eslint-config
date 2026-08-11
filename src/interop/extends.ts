@@ -38,6 +38,7 @@ const scopeTo = ((
 
 const mergeRules = ((
   ...records: Array<Partial<RuleOptions> | undefined>
+// eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- Correct.
 ): Partial<RuleOptions> => (Object.assign({}, ...records.filter(Boolean)) as Partial<RuleOptions>));
 
 /**

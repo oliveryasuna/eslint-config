@@ -27,6 +27,7 @@ const jsdoc = (async(
 
           'jsdoc/require-param': 'off',
           'jsdoc/require-returns': 'off',
+          'jsdoc/tag-lines': 'off',
 
           ...overrides
         }

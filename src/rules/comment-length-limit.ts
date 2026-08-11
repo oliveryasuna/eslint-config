@@ -38,6 +38,7 @@ const isTsComment = ((commentContent: string): boolean => {
 /**
  * Gets the actual comment content for a given line, excluding surrounding code.
  */
+// eslint-disable-next-line max-statements -- Expected.
 const getCommentContentForLine = ((
   comment: Comment,
   lineNumber: number,
@@ -57,10 +58,10 @@ const getCommentContentForLine = ((
     }
 
     return null;
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- Correct.
   } else if(comment.type === AST_TOKEN_TYPES.Block) {
     const isFirstLine = (lineNumber === comment.loc.start.line);
     const isLastLine = (lineNumber === comment.loc.end.line);
-
     if(isFirstLine && isLastLine) {
       // Single-line block comment.
       return lineText.slice(comment.loc.start.column, comment.loc.end.column);
@@ -141,6 +142,7 @@ export default createRule<never[], (keyof MessageIds)>({
     const handleProgram = ((_node: TSESTree.Program): void => {
       const comments: (readonly Comment[]) = sourceCode.getAllComments();
       for(const comment of comments) {
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- Correct.
         if((comment.type === AST_TOKEN_TYPES.Line) || (comment.type === AST_TOKEN_TYPES.Block)) {
           const violations = checkCommentLines(comment, sourceCode);
           for(const violation of violations) {
@@ -158,6 +160,7 @@ export default createRule<never[], (keyof MessageIds)>({
               },
               messageId: 'commentTooLong',
 
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- Correct.
               data: (commentData as any)
             });
           }

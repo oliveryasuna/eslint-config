@@ -65,6 +65,7 @@ const ERASABLE_RULES: Partial<RuleOptions> = {
   '@typescript-eslint/prefer-literal-enum-member': 'error'
 };
 
+// eslint-disable-next-line max-lines-per-function -- Expected.
 const typescript = (async(
   {
     name,
@@ -81,6 +82,7 @@ const typescript = (async(
     erasableOnly = false,
     parserOptions
   }: (OptionsTypeScript & ModuleContext)
+// eslint-disable-next-line complexity -- Expected.
 ): Promise<TypedFlatConfigItem[]> => {
   const [
     plugin,
@@ -193,18 +195,25 @@ const typescript = (async(
           ],
           '@typescript-eslint/explicit-function-return-type': 'error',
           '@typescript-eslint/explicit-member-accessibility': 'error',
+          '@typescript-eslint/init-declarations': 'error',
+          '@typescript-eslint/member-ordering': 'error',
           '@typescript-eslint/method-signature-style': [
             'error',
-            'property'
+            'method'
           ],
+          '@typescript-eslint/no-confusing-void-expression': 'error',
           '@typescript-eslint/no-empty-object-type': [
             'error',
             {allowInterfaces: 'always'}
           ],
           '@typescript-eslint/no-explicit-any': 'off',
           '@typescript-eslint/no-import-type-side-effects': 'error',
-          '@typescript-eslint/no-non-null-assertion': 'off',
+          '@typescript-eslint/no-loop-func': 'error',
+          '@typescript-eslint/no-non-null-assertion': 'error',
           '@typescript-eslint/no-require-imports': 'error',
+          '@typescript-eslint/no-unnecessary-condition': 'error',
+          '@typescript-eslint/no-unsafe-member-access': 'error',
+          '@typescript-eslint/no-unsafe-type-assertion': 'error',
           '@typescript-eslint/no-unused-vars': [
             'error',
             {
@@ -214,6 +223,7 @@ const typescript = (async(
               destructuredArrayIgnorePattern: '^_'
             }
           ],
+          '@typescript-eslint/no-use-before-define': 'error',
           '@typescript-eslint/no-wrapper-object-types': 'error',
 
           ...overrides

@@ -91,6 +91,7 @@ const parseName = ((name: string): (ParsedName | null) => {
     : {
         ns: ns,
         module: module,
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- Correct.
         purpose: (purpose as ConfigPurpose)
       });
 });

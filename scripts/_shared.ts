@@ -95,6 +95,7 @@ const normalizeContent = ((input: string): string =>
     .replaceAll(/[ \t]+$/gm, '')
     .replace(/\n+$/, '')}\n`);
 
+// eslint-disable-next-line max-lines-per-function, max-statements -- Clean.
 const emit = (async(
   files: GeneratedFile[],
   mode: Mode
@@ -106,6 +107,7 @@ const emit = (async(
 
     let actual: (string | null) = null;
     try {
+      // eslint-disable-next-line no-await-in-loop -- Safe.
       actual = normalizeContent(await fs.readFile(file.path, 'utf8'));
     } catch{
       // NO-OP.
@@ -137,7 +139,9 @@ const emit = (async(
       continue;
     }
 
+    // eslint-disable-next-line no-await-in-loop -- Safe.
     await fs.mkdir(path.dirname(file.path), {recursive: true});
+    // eslint-disable-next-line no-await-in-loop -- Safe.
     await fs.writeFile(file.path, expected, 'utf8');
 
     results.push({
@@ -163,13 +167,16 @@ const runGenerators = (async(
     name,
     generate
   ] of Object.entries(generators)) {
+    // eslint-disable-next-line @typescript-eslint/init-declarations -- Correct.
     let files: GeneratedFile[];
     try {
+      // eslint-disable-next-line no-await-in-loop -- Safe.
       files = (await generate());
     } catch(err: unknown) {
       throw (new Error(`Generator "${name}" failed`, {cause: err}));
     }
 
+    // eslint-disable-next-line no-await-in-loop -- Safe.
     results.push(...(await emit(files, mode)));
   }
 

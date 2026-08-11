@@ -3,6 +3,7 @@ import type {ModuleContext, TypedFlatConfigItem} from '../types';
 import {configRules, loadPlugin} from '../interop';
 import {applySeverity} from '../options';
 
+// eslint-disable-next-line max-lines-per-function -- Expected.
 const imports = (async(
   {
     name,

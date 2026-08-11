@@ -23,8 +23,10 @@ class MissingPeerError extends Error {
 const interopDefault = (async <T>(
   value: Awaitable<T>
 ): Promise<T extends {default: (infer U);} ? U : T> => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- Correct.
   const resolved = ((await value) as (T & {default?: unknown;}));
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion, @typescript-eslint/no-unnecessary-condition -- Correct.
   return (((resolved && (typeof resolved === 'object') && ('default' in resolved))
     ? resolved.default
     : resolved) as (T extends {default: (infer U);} ? U : T));
@@ -44,22 +46,26 @@ const load = (async(
 const loadPlugin = (async(
   specifier: string,
   feature: string
+// eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- Correct.
 ): Promise<AnyPlugin> => ((await load(specifier, feature)) as AnyPlugin));
 
 const loadParser = (async(
   specifier: string,
   feature: string
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- Correct.
 ): Promise<AnyParser> => ((await load(specifier, feature)) as AnyParser));
 
 const loadProcessor = (async(
   specifier: string,
   feature: string
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- Correct.
 ): Promise<AnyProcessor> => ((await load(specifier, feature)) as AnyProcessor));
 
 /** Escape hatch for packages that are data rather than plugins, e.g. `globals`. */
 const loadModule = (async <T>(
   specifier: string,
   feature: string
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- Correct.
 ): Promise<T> => ((await load(specifier, feature)) as T));
 
 /**

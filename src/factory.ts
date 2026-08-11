@@ -18,8 +18,10 @@ const BUILTIN_RULES_LOADER = (async() => (await import('eslint/use-at-your-own-r
  * Returns the unresolved module outputs in config order. Exported because the
  * generators and snapshot tests want the array before composition.
  */
+// eslint-disable-next-line max-lines-per-function, max-statements -- Expected.
 const assembleConfigs = ((
   resolved: ResolvedOptions
+// eslint-disable-next-line complexity -- Expected.
 ): Array<Promise<TypedFlatConfigItem[]>> => {
   const {modules, name, severity, ignores, overlays, type} = resolved;
   const ctx: ModuleContext = {
@@ -183,3 +185,7 @@ export {
   assembleConfigs,
   defineConfig
 };
+
+export type {
+  FlatConfigComposer
+} from 'eslint-flat-config-utils';

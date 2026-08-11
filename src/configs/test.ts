@@ -27,6 +27,7 @@ const TEST_PREFIXES: Record<string, string> = {
   vitest: 'test'
 };
 
+// eslint-disable-next-line max-lines-per-function -- Expected.
 const test = (async(
   {
     name,

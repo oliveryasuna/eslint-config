@@ -110,9 +110,11 @@ const isAlreadyWrapped = ((
 /**
  * Checks if a node is in a context where it's already grouped.
  */
+// eslint-disable-next-line max-lines-per-function, max-statements -- Expected.
 const isAlreadyInGroupedContext = ((
   node: Node,
   parent: (Node | undefined)
+// eslint-disable-next-line complexity -- Expected.
 ): boolean => {
   if(!parent) {
     return false;
@@ -162,11 +164,13 @@ const isAlreadyInGroupedContext = ((
   }
 
   // Already in function call arguments.
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- Correct.
   if((parent.type === AST_NODE_TYPES.CallExpression) && parent.arguments.includes(node as TSESTree.CallExpressionArgument) && (parent.arguments.length === 1)) {
     return true;
   }
 
   // Already in array literal.
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- Correct.
   if((parent.type === AST_NODE_TYPES.ArrayExpression) && (parent.elements.includes(node as (TSESTree.SpreadElement | TSESTree.Expression)))) {
     return true;
   }
@@ -177,6 +181,7 @@ const isAlreadyInGroupedContext = ((
   }
 
   // Already in template literal expression.
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- Correct.
   if(((parent.type === AST_NODE_TYPES.TemplateLiteral)) && (parent.expressions.includes(node as TSESTree.Expression))) {
     return true;
   }
@@ -204,10 +209,12 @@ const isAlreadyInGroupedContext = ((
 /**
  * Checks if a node needs parentheses.
  */
+// eslint-disable-next-line max-lines-per-function, max-statements -- Expected.
 const needsParentheses = ((
   node: Node,
   parent: (Node | undefined),
   context: RuleContext
+// eslint-disable-next-line complexity -- Expected.
 ): boolean => {
   // Skip if already wrapped or in a grouped context.
   if(isAlreadyWrapped(node, context) || isAlreadyInGroupedContext(node, parent)) {

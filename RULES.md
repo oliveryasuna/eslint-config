@@ -5,16 +5,16 @@
 
 # Rule Inventory
 
-595 distinct rules are referenced across 4 presets.
+606 distinct rules are referenced across 4 presets.
 
 ## Summary
 
 | Preset | Configs | Rules on | `error` | `warn` | Explicitly off |
 | --- | --- | --- | --- | --- | --- |
-| `minimal` | 13 | 170 | 160 | 10 | 8 |
-| `recommended` | 29 | 476 | 431 | 45 | 103 |
-| `strict` | 30 | 487 | 442 | 45 | 108 |
-| `library` | 30 | 487 | 442 | 45 | 108 |
+| `minimal` | 13 | 173 | 163 | 10 | 9 |
+| `recommended` | 29 | 487 | 443 | 44 | 104 |
+| `strict` | 30 | 497 | 453 | 44 | 109 |
+| `library` | 30 | 497 | 453 | 44 | 109 |
 
 ## Rules
 
@@ -22,7 +22,7 @@ Severity shown is the last entry in config order. Rules marked `scoped` are
 only set inside configs restricted by `files` or `ignores`, so the severity
 applies to those globs rather than the whole project.
 
-490 enabled rule(s) have no entry in `src/meta/notes.ts`.
+501 enabled rule(s) have no entry in `src/meta/notes.ts`.
 
 | Rule | Module | Scope | `minimal` | `recommended` | `strict` | `library` | Note |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -44,11 +44,15 @@ applies to those globs rather than the whole project.
 | `unused-imports/no-unused-imports` | imports | global | `error` | — | — | — |  |
 | `unused-imports/no-unused-vars` | imports | global | `error` | — | — | — |  |
 | `arrow-body-style` | javascript | scoped | `error` | `error` | `error` | `error` |  |
+| `complexity` | javascript | scoped | `error` | `error` | `error` | `error` |  |
 | `constructor-super` | javascript | scoped | `error` | `error` | `error` | `error` |  |
 | `curly` | javascript | scoped | `error` | `error` | `error` | `error` |  |
 | `for-direction` | javascript | scoped | `error` | `error` | `error` | `error` |  |
 | `getter-return` | javascript | scoped | `error` | `error` | `error` | `error` |  |
+| `max-lines-per-function` | javascript | scoped | `error` | `error` | `error` | `error` |  |
+| `max-statements` | javascript | scoped | `error` | `error` | `error` | `error` |  |
 | `no-async-promise-executor` | javascript | scoped | `error` | `error` | `error` | `error` |  |
+| `no-await-in-loop` | javascript | scoped | `error` | `error` | `error` | `error` |  |
 | `no-case-declarations` | javascript | scoped | `error` | `error` | `error` | `error` |  |
 | `no-class-assign` | javascript | scoped | `error` | `error` | `error` | `error` |  |
 | `no-compare-neg-zero` | javascript | scoped | `error` | `error` | `error` | `error` |  |
@@ -70,7 +74,7 @@ applies to those globs rather than the whole project.
 | `no-empty-static-block` | javascript | scoped | `error` | `error` | `error` | `error` |  |
 | `no-ex-assign` | javascript | scoped | `error` | `error` | `error` | `error` |  |
 | `no-extra-boolean-cast` | javascript | scoped | `error` | `error` | `error` | `error` |  |
-| `no-fallthrough` | javascript | scoped | `error` | `error` | `error` | `error` |  |
+| `no-fallthrough` | javascript | scoped | — | — | — | — |  |
 | `no-func-assign` | javascript | scoped | `error` | `error` | `error` | `error` |  |
 | `no-global-assign` | javascript | scoped | `error` | `error` | `error` | `error` |  |
 | `no-import-assign` | javascript | scoped | `error` | `error` | `error` | `error` |  |
@@ -174,7 +178,7 @@ applies to those globs rather than the whole project.
 | `jsdoc/require-yields-description` | jsdoc | scoped | — | — | — | — |  |
 | `jsdoc/require-yields-type` | jsdoc | scoped | — | `warn` | `warn` | `warn` |  |
 | `jsdoc/sort-tags` | jsdoc | scoped | — | — | — | — |  |
-| `jsdoc/tag-lines` | jsdoc | scoped | — | `warn` | `warn` | `warn` |  |
+| `jsdoc/tag-lines` | jsdoc | scoped | — | — | — | — |  |
 | `jsdoc/text-escaping` | jsdoc | scoped | — | — | — | — |  |
 | `jsdoc/ts-method-signature-style` | jsdoc | scoped | — | — | — | — |  |
 | `jsdoc/ts-no-empty-object-type` | jsdoc | scoped | — | `warn` | `warn` | `warn` |  |
@@ -414,8 +418,11 @@ applies to those globs rather than the whole project.
 | `@typescript-eslint/dot-notation` | typescript | scoped | — | `error` | `error` | `error` |  |
 | `@typescript-eslint/explicit-function-return-type` | typescript | scoped | — | `error` | `error` | `error` |  |
 | `@typescript-eslint/explicit-member-accessibility` | typescript | scoped | — | `error` | `error` | `error` |  |
+| `@typescript-eslint/init-declarations` | typescript | scoped | — | `error` | `error` | `error` |  |
+| `@typescript-eslint/member-ordering` | typescript | scoped | — | `error` | `error` | `error` |  |
 | `@typescript-eslint/method-signature-style` | typescript | scoped | — | `error` | `error` | `error` |  |
 | `@typescript-eslint/no-array-constructor` | typescript | scoped | — | `error` | `error` | `error` |  |
+| `@typescript-eslint/no-confusing-void-expression` | typescript | scoped | — | `error` | `error` | `error` |  |
 | `@typescript-eslint/no-dupe-class-members` | typescript | scoped | — | `error` | `error` | `error` |  |
 | `@typescript-eslint/no-duplicate-enum-values` | typescript | scoped | — | `error` | `error` | `error` |  |
 | `@typescript-eslint/no-dynamic-delete` | typescript | scoped | — | `error` | `error` | `error` |  |
@@ -428,15 +435,17 @@ applies to those globs rather than the whole project.
 | `@typescript-eslint/no-implied-eval` | typescript | scoped | — | — | `error` | `error` |  |
 | `@typescript-eslint/no-import-type-side-effects` | typescript | scoped | — | `error` | `error` | `error` |  |
 | `@typescript-eslint/no-invalid-void-type` | typescript | scoped | — | `error` | `error` | `error` |  |
+| `@typescript-eslint/no-loop-func` | typescript | scoped | — | `error` | `error` | `error` |  |
 | `@typescript-eslint/no-misused-new` | typescript | scoped | — | `error` | `error` | `error` |  |
 | `@typescript-eslint/no-misused-promises` | typescript | scoped | — | — | `error` | `error` |  |
 | `@typescript-eslint/no-namespace` | typescript | scoped | — | — | — | — |  |
 | `@typescript-eslint/no-non-null-asserted-nullish-coalescing` | typescript | scoped | — | `error` | `error` | `error` |  |
 | `@typescript-eslint/no-non-null-asserted-optional-chain` | typescript | scoped | — | `error` | `error` | `error` |  |
-| `@typescript-eslint/no-non-null-assertion` | typescript | scoped | — | — | — | — |  |
+| `@typescript-eslint/no-non-null-assertion` | typescript | scoped | — | `error` | `error` | `error` |  |
 | `@typescript-eslint/no-redeclare` | typescript | scoped | — | — | — | — |  |
 | `@typescript-eslint/no-require-imports` | typescript | scoped | — | — | — | — |  |
 | `@typescript-eslint/no-this-alias` | typescript | scoped | — | `error` | `error` | `error` |  |
+| `@typescript-eslint/no-unnecessary-condition` | typescript | scoped | — | `error` | `error` | `error` |  |
 | `@typescript-eslint/no-unnecessary-type-assertion` | typescript | scoped | — | — | `error` | `error` |  |
 | `@typescript-eslint/no-unnecessary-type-constraint` | typescript | scoped | — | `error` | `error` | `error` |  |
 | `@typescript-eslint/no-unsafe-argument` | typescript | scoped | — | — | — | — |  |
@@ -444,10 +453,12 @@ applies to those globs rather than the whole project.
 | `@typescript-eslint/no-unsafe-call` | typescript | scoped | — | — | — | — |  |
 | `@typescript-eslint/no-unsafe-declaration-merging` | typescript | scoped | — | `error` | `error` | `error` |  |
 | `@typescript-eslint/no-unsafe-function-type` | typescript | scoped | — | `error` | `error` | `error` |  |
-| `@typescript-eslint/no-unsafe-member-access` | typescript | scoped | — | — | — | — |  |
+| `@typescript-eslint/no-unsafe-member-access` | typescript | scoped | — | `error` | — | — |  |
 | `@typescript-eslint/no-unsafe-return` | typescript | scoped | — | — | — | — |  |
+| `@typescript-eslint/no-unsafe-type-assertion` | typescript | scoped | — | `error` | `error` | `error` |  |
 | `@typescript-eslint/no-unused-expressions` | typescript | scoped | — | — | — | — |  |
 | `@typescript-eslint/no-unused-vars` | typescript | scoped | — | — | — | — |  |
+| `@typescript-eslint/no-use-before-define` | typescript | scoped | — | `error` | `error` | `error` |  |
 | `@typescript-eslint/no-useless-constructor` | typescript | scoped | — | `error` | `error` | `error` |  |
 | `@typescript-eslint/no-wrapper-object-types` | typescript | scoped | — | `error` | `error` | `error` |  |
 | `@typescript-eslint/prefer-as-const` | typescript | scoped | — | `error` | `error` | `error` |  |
@@ -643,8 +654,18 @@ applies to those globs rather than the whole project.
   "arrow-body-style": [
     "as-needed"
   ],
+  "complexity": [
+    {
+      "maximum": 10
+    }
+  ],
   "curly": [
     "all"
+  ],
+  "max-statements": [
+    {
+      "max": 15
+    }
   ],
   "object-shorthand": [
     "never"
@@ -666,8 +687,18 @@ applies to those globs rather than the whole project.
   "arrow-body-style": [
     "as-needed"
   ],
+  "complexity": [
+    {
+      "maximum": 10
+    }
+  ],
   "curly": [
     "all"
+  ],
+  "max-statements": [
+    {
+      "max": 15
+    }
   ],
   "object-shorthand": [
     "never"
@@ -1040,7 +1071,7 @@ applies to those globs rather than the whole project.
     }
   ],
   "@typescript-eslint/method-signature-style": [
-    "property"
+    "method"
   ],
   "@typescript-eslint/no-empty-object-type": [
     {
@@ -1062,8 +1093,18 @@ applies to those globs rather than the whole project.
   "arrow-body-style": [
     "as-needed"
   ],
+  "complexity": [
+    {
+      "maximum": 10
+    }
+  ],
   "curly": [
     "all"
+  ],
+  "max-statements": [
+    {
+      "max": 15
+    }
   ],
   "object-shorthand": [
     "never"
@@ -1436,7 +1477,7 @@ applies to those globs rather than the whole project.
     }
   ],
   "@typescript-eslint/method-signature-style": [
-    "property"
+    "method"
   ],
   "@typescript-eslint/no-empty-object-type": [
     {
@@ -1471,8 +1512,18 @@ applies to those globs rather than the whole project.
   "arrow-body-style": [
     "as-needed"
   ],
+  "complexity": [
+    {
+      "maximum": 10
+    }
+  ],
   "curly": [
     "all"
+  ],
+  "max-statements": [
+    {
+      "max": 15
+    }
   ],
   "object-shorthand": [
     "never"
@@ -1852,7 +1903,7 @@ applies to those globs rather than the whole project.
     }
   ],
   "@typescript-eslint/method-signature-style": [
-    "property"
+    "method"
   ],
   "@typescript-eslint/no-empty-object-type": [
     {

@@ -83,6 +83,7 @@ interface RuleRecord {
  * config that sets the rule. Where `scoped` is true, the reported severity
  * applies only to files matching those globs.
  */
+// eslint-disable-next-line complexity -- Expected.
 const collectRules = ((configs: ResolvedConfigs): Map<string, RuleRecord> => {
   const out = (new Map<string, RuleRecord>());
 
@@ -98,6 +99,7 @@ const collectRules = ((configs: ResolvedConfigs): Map<string, RuleRecord> => {
       rule,
       entry
     ] of Object.entries(config.rules)) {
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- Correct.
       if((entry === undefined) || (entry === null)) {
         continue;
       }
@@ -139,6 +141,7 @@ interface PresetInventory {
 }
 
 const buildInventories = (async(presets: Record<PresetName, OptionsConfig> = PRESETS): Promise<PresetInventory[]> => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- Correct.
   const entries = (Object.entries(presets) as [PresetName, OptionsConfig][]);
   const inventories: PresetInventory[] = [];
 
@@ -146,6 +149,7 @@ const buildInventories = (async(presets: Record<PresetName, OptionsConfig> = PRE
     preset,
     options
   ] of entries) {
+    // eslint-disable-next-line no-await-in-loop -- Safe.
     const configs = (await resolveConfigs(options));
     inventories.push({
       preset: preset,

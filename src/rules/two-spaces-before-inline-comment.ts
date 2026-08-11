@@ -16,6 +16,7 @@ export default createRule({
     messages: {twoSpacesRequired: 'End-of-line comments must be preceded by at least 2 spaces, found {{actual}}'}
   },
   defaultOptions: [],
+  // eslint-disable-next-line max-lines-per-function -- Expected.
   create: ((context) => {
     const sourceCode = context.sourceCode;
 
@@ -47,6 +48,7 @@ export default createRule({
     });
 
     return {
+      // eslint-disable-next-line max-lines-per-function -- Expected.
       Program: ((_): void => {
         const comments = sourceCode.getAllComments();
 
@@ -101,7 +103,9 @@ export default createRule({
 
                 return fixer.replaceTextRange(
                   [
+                    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- Correct.
                     range[0]!,
+                    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- Correct.
                     range[1]!
                   ],
                   '  '

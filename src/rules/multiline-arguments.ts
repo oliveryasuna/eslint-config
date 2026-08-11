@@ -64,9 +64,11 @@ const requireNewlineBetween = ((
   });
 });
 
+// eslint-disable-next-line max-statements -- Expected.
 const checkCall = ((
   node: CallNode,
   context: RuleContext
+// eslint-disable-next-line complexity -- Expected.
 ): void => {
   const args = node.arguments;
   if(args.length <= 1) {

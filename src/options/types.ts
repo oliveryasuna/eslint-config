@@ -85,6 +85,7 @@ interface TypeScriptParserOptions {
   ecmaFeatures?: Record<string, boolean>;
   extraFileExtensions?: string[];
   warnOnUnsupportedTypeScriptVersion?: boolean;
+  // eslint-disable-next-line @typescript-eslint/member-ordering -- Clean.
   [key: string]: unknown;
 }
 

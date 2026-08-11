@@ -6,6 +6,7 @@ import {applySeverity} from '../options/severity';
 
 const REFRESH_ALLOW_CONSTANT_EXPORT = true;
 
+// eslint-disable-next-line max-lines-per-function -- Expected.
 const react = (async(
   {
     name,
@@ -16,6 +17,7 @@ const react = (async(
     a11y = false,
     overrides
   }: (OptionsReact & ModuleContext)
+// eslint-disable-next-line complexity -- Expected.
 ): Promise<TypedFlatConfigItem[]> => {
   const [
     reactPlugin,

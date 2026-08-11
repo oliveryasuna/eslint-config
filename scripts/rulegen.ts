@@ -40,6 +40,7 @@ const buildMatrix = ((inventories: PresetInventory[]): MatrixRow[] => {
           rule: record.rule,
           module: record.module,
           scoped: record.scoped,
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- Correct.
           severities: ({} as Record<PresetName, Severity>)
         };
         rows.set(record.rule, row);
@@ -94,12 +95,14 @@ const matrixSection = ((
       `\`${row.rule}\``,
       row.module,
       row.scoped ? 'scoped' : 'global',
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- Correct.
       ...presets.map(preset => SEVERITY_CELL[row.severities[preset] ?? 'off']),
       note ? escapeCell(note) : ''
     ];
   });
 
   const undocumented = matrix.filter(
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- Correct.
     row => (!RULE_NOTES[row.rule] && presets.some(p => ((row.severities[p] ?? 'off') !== 'off')))
   ).length;
 

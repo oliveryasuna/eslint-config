@@ -42,6 +42,7 @@ const collapse = (<T extends object>(
     return false;
   }
   if(value === true) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- Correct.
     return ({} as T);
   }
 
@@ -103,6 +104,7 @@ const resolveOverlays = ((options: OptionsConfig): Overlay[] => {
     : [...overlays]);
 });
 
+// eslint-disable-next-line max-lines-per-function -- Expected.
 const resolveModules = ((options: OptionsConfig): ResolvedModules => {
   const typescript = collapse(options.typescript, MODULE_DEFAULTS.typescript);
   if(typescript !== false) {
@@ -135,7 +137,9 @@ const resolveModules = ((options: OptionsConfig): ResolvedModules => {
     key,
     overrides
   ] of Object.entries(options.overrides ?? {})) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- Correct.
     const module = modules[key as ModuleName];
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- Correct.
     if((module === false) || !overrides) {
       continue;
     }

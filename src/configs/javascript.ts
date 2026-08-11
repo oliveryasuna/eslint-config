@@ -18,6 +18,7 @@ interface GlobalsModule {
   browser: Record<string, boolean>;
 }
 
+// eslint-disable-next-line max-lines-per-function -- Expected.
 const javascript = (async(
   {
     name,
@@ -65,10 +66,21 @@ const javascript = (async(
             'error',
             'as-needed'
           ],
+          complexity: [
+            'error',
+            {maximum: 10}
+          ],
           curly: [
             'error',
             'all'
           ],
+          'max-lines-per-function': 'error',
+          'max-statements': [
+            'error',
+            {max: 15}
+          ],
+          'no-fallthrough': 'off',
+          'no-await-in-loop': 'error',
           'object-shorthand': [
             'error',
             'never'
