@@ -39,7 +39,7 @@ const perfectionist = (async(
     severity,
     files,
     overrides,
-    level = 'warn'
+    level = 'error'
   }: (OptionsPerfectionist & ModuleContext)
 ): Promise<TypedFlatConfigItem[]> => {
   const plugin = (await loadPlugin('eslint-plugin-perfectionist', 'perfectionist'));
