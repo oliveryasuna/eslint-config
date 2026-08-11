@@ -45,7 +45,7 @@ const react = (async(
     {
       name: name('react', 'setup'),
       plugins: {
-        react: reactPlugin,
+        '@eslint-react': reactPlugin,
         'react-hooks': hooks,
         ...(refreshPlugin && {'react-refresh': refreshPlugin}),
         ...(a11yPlugin && {'jsx-a11y': a11yPlugin}),
