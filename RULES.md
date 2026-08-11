@@ -5,16 +5,16 @@
 
 # Rule Inventory
 
-606 distinct rules are referenced across 4 presets.
+607 distinct rules are referenced across 4 presets.
 
 ## Summary
 
 | Preset | Configs | Rules on | `error` | `warn` | Explicitly off |
 | --- | --- | --- | --- | --- | --- |
 | `minimal` | 13 | 173 | 163 | 10 | 9 |
-| `recommended` | 29 | 487 | 443 | 44 | 104 |
-| `strict` | 30 | 497 | 453 | 44 | 109 |
-| `library` | 30 | 497 | 453 | 44 | 109 |
+| `recommended` | 29 | 487 | 446 | 41 | 105 |
+| `strict` | 30 | 497 | 453 | 44 | 110 |
+| `library` | 30 | 497 | 453 | 44 | 110 |
 
 ## Rules
 
@@ -255,9 +255,9 @@ applies to those globs rather than the whole project.
 | `n/no-unsupported-features/es-syntax` | node | global | `error` | `error` | `error` | `error` |  |
 | `n/no-unsupported-features/node-builtins` | node | global | `error` | `error` | `error` | `error` |  |
 | `n/process-exit-as-throw` | node | global | `error` | `error` | `error` | `error` |  |
-| `perfectionist/sort-exports` | perfectionist | scoped | — | `warn` | `warn` | `warn` |  |
-| `perfectionist/sort-imports` | perfectionist | scoped | — | `warn` | `warn` | `warn` | Warn rather than error: import order is a formatting concern and should not fail a build. |
-| `perfectionist/sort-named-imports` | perfectionist | scoped | — | `warn` | `warn` | `warn` |  |
+| `perfectionist/sort-exports` | perfectionist | scoped | — | `error` | `warn` | `warn` |  |
+| `perfectionist/sort-imports` | perfectionist | scoped | — | `error` | `warn` | `warn` | Warn rather than error: import order is a formatting concern and should not fail a build. |
+| `perfectionist/sort-named-imports` | perfectionist | scoped | — | `error` | `warn` | `warn` |  |
 | `prefer-regex-literals` | regexp | global | `error` | `error` | `error` | `error` |  |
 | `regexp/confusing-quantifier` | regexp | global | `warn` | `warn` | `warn` | `warn` |  |
 | `regexp/control-character-escape` | regexp | global | `error` | `error` | `error` | `error` |  |
@@ -319,7 +319,7 @@ applies to those globs rather than the whole project.
 | `regexp/sort-flags` | regexp | global | `error` | `error` | `error` | `error` |  |
 | `regexp/strict` | regexp | global | `error` | `error` | `error` | `error` |  |
 | `regexp/use-ignore-case` | regexp | global | `error` | `error` | `error` | `error` |  |
-| `@stylistic/array-bracket-newline` | stylistic | scoped | — | `error` | `error` | `error` |  |
+| `@stylistic/array-bracket-newline` | stylistic | scoped | — | — | — | — |  |
 | `@stylistic/array-bracket-spacing` | stylistic | scoped | — | `error` | `error` | `error` |  |
 | `@stylistic/array-element-newline` | stylistic | scoped | — | `error` | `error` | `error` |  |
 | `@stylistic/arrow-parens` | stylistic | scoped | — | `error` | `error` | `error` |  |
@@ -389,6 +389,7 @@ applies to those globs rather than the whole project.
 | `@stylistic/type-named-tuple-spacing` | stylistic | scoped | — | `error` | `error` | `error` |  |
 | `@stylistic/wrap-iife` | stylistic | scoped | — | `error` | `error` | `error` |  |
 | `@stylistic/yield-star-spacing` | stylistic | scoped | — | `error` | `error` | `error` |  |
+| `custom/array-bracket-newline` | stylistic | scoped | — | `error` | `error` | `error` |  |
 | `test/expect-expect` | test | scoped | `error` | `error` | `error` | `error` |  |
 | `test/no-commented-out-tests` | test | scoped | `error` | `error` | `error` | `error` |  |
 | `test/no-conditional-expect` | test | scoped | `error` | `error` | `error` | `error` |  |
@@ -759,19 +760,16 @@ applies to those globs rather than the whole project.
       "type": "natural"
     }
   ],
-  "@stylistic/array-bracket-newline": [
-    {
-      "minItems": 2,
-      "multiline": true
-    }
-  ],
   "@stylistic/array-bracket-spacing": [
     "never"
   ],
   "@stylistic/array-element-newline": [
     {
-      "minItems": 2,
-      "multiline": true
+      "ArrayExpression": {
+        "minItems": 2,
+        "multiline": true
+      },
+      "ArrayPattern": "never"
     }
   ],
   "@stylistic/arrow-parens": [
@@ -1055,6 +1053,12 @@ applies to those globs rather than the whole project.
     {
       "after": true,
       "before": false
+    }
+  ],
+  "custom/array-bracket-newline": [
+    {
+      "minItems": 2,
+      "multiline": true
     }
   ],
   "@typescript-eslint/ban-ts-comment": [
@@ -1165,19 +1169,16 @@ applies to those globs rather than the whole project.
       "type": "natural"
     }
   ],
-  "@stylistic/array-bracket-newline": [
-    {
-      "minItems": 2,
-      "multiline": true
-    }
-  ],
   "@stylistic/array-bracket-spacing": [
     "never"
   ],
   "@stylistic/array-element-newline": [
     {
-      "minItems": 2,
-      "multiline": true
+      "ArrayExpression": {
+        "minItems": 2,
+        "multiline": true
+      },
+      "ArrayPattern": "never"
     }
   ],
   "@stylistic/arrow-parens": [
@@ -1461,6 +1462,12 @@ applies to those globs rather than the whole project.
     {
       "after": true,
       "before": false
+    }
+  ],
+  "custom/array-bracket-newline": [
+    {
+      "minItems": 2,
+      "multiline": true
     }
   ],
   "@typescript-eslint/ban-ts-comment": [
@@ -1584,19 +1591,16 @@ applies to those globs rather than the whole project.
       "type": "natural"
     }
   ],
-  "@stylistic/array-bracket-newline": [
-    {
-      "minItems": 2,
-      "multiline": true
-    }
-  ],
   "@stylistic/array-bracket-spacing": [
     "never"
   ],
   "@stylistic/array-element-newline": [
     {
-      "minItems": 2,
-      "multiline": true
+      "ArrayExpression": {
+        "minItems": 2,
+        "multiline": true
+      },
+      "ArrayPattern": "never"
     }
   ],
   "@stylistic/arrow-parens": [
@@ -1880,6 +1884,12 @@ applies to those globs rather than the whole project.
     {
       "after": true,
       "before": false
+    }
+  ],
+  "custom/array-bracket-newline": [
+    {
+      "minItems": 2,
+      "multiline": true
     }
   ],
   "@typescript-eslint/ban-ts-comment": [

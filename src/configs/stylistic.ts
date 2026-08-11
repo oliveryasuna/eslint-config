@@ -2,6 +2,7 @@ import type {StylisticOptions} from '../options/types';
 import type {ModuleContext, TypedFlatConfigItem} from '../types';
 import {configRules, loadPlugin} from '../interop/lazy';
 import {applySeverity} from '../options/severity';
+import {CUSTOM_PLUGIN} from '../rules';
 
 // eslint-disable-next-line max-lines-per-function -- Expected.
 const stylistic = (async(
@@ -15,7 +16,12 @@ const stylistic = (async(
   return [
     {
       name: name('stylistic', 'setup'),
-      plugins: {'@stylistic': plugin}
+      plugins: {
+        '@stylistic': plugin,
+        // The same instance the `typescript` module registers; flat config
+        // rejects one plugin name bound to two different objects.
+        custom: CUSTOM_PLUGIN
+      }
     },
     {
       name: name('stylistic', 'rules'),
@@ -26,17 +32,12 @@ const stylistic = (async(
 
           '@stylistic/array-bracket-newline': [
             'error',
-            {
-              minItems: 2,
-              multiline: true
-            }
+            'consistent'
           ],
+          // This one needs no wrapper b/c its schema does take node-type keys.
           '@stylistic/array-element-newline': [
             'error',
-            {
-              minItems: 2,
-              multiline: true
-            }
+            'consistent'
           ],
           '@stylistic/brace-style': [
             'error',

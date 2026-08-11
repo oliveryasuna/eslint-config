@@ -3,11 +3,7 @@ import type {ModuleContext, RuleOptions, TypedFlatConfigItem} from '../types';
 import {GLOB_SRC, GLOB_TS, GLOB_TSX} from '../globs';
 import {asConfigArray, loadParser, loadPlugin, mergeRules, pickRules} from '../interop';
 import {applySeverity, DEFAULT_PROJECT_SERVICE, DEFAULT_TYPE_AWARE_FILES, DEFAULT_TYPE_AWARE_IGNORES} from '../options';
-import commentLengthLimit from '../rules/comment-length-limit';
-import insaneParentheses from '../rules/insane-parentheses';
-import multilineArguments from '../rules/multiline-arguments';
-import oneParameterPerLine from '../rules/one-parameter-per-line';
-import twoSpacesBeforeInlineComment from '../rules/two-spaces-before-inline-comment';
+import {CUSTOM_PLUGIN} from '../rules';
 
 /** Core rules replaced by a TypeScript-aware equivalent. */
 const EXTENSION_RULES: Partial<RuleOptions> = {
@@ -84,10 +80,7 @@ const typescript = (async(
   }: (OptionsTypeScript & ModuleContext)
 // eslint-disable-next-line complexity -- Expected.
 ): Promise<TypedFlatConfigItem[]> => {
-  const [
-    plugin,
-    parser
-  ] = (await Promise.all([
+  const [plugin, parser] = (await Promise.all([
     loadPlugin('@typescript-eslint/eslint-plugin', 'typescript'),
     loadParser('@typescript-eslint/parser', 'typescript')
   ]));
@@ -149,22 +142,7 @@ const typescript = (async(
         GLOB_TS,
         GLOB_TSX
       ],
-      plugins: {
-        custom: {
-          rules: {
-            // @ts-expect-error TS(2322): Expected.
-            'two-spaces-before-inline-comment': twoSpacesBeforeInlineComment,
-            // @ts-expect-error TS(2322): Expected.
-            'comment-length-limit': commentLengthLimit,
-            // @ts-expect-error TS(2322): Expected.
-            'insane-parentheses': insaneParentheses,
-            // @ts-expect-error TS(2322): Expected.
-            'one-parameter-per-line': oneParameterPerLine,
-            // @ts-expect-error TS(2322): Expected.
-            'multiline-arguments': multilineArguments
-          }
-        }
-      },
+      plugins: {custom: CUSTOM_PLUGIN},
       rules: applySeverity(
         severity,
         {

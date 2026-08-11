@@ -1351,6 +1351,11 @@ export interface RuleOptions {
    */
   'curly'?: Linter.RuleEntry<Curly>
   /**
+   * Enforce linebreaks after opening and before closing array brackets
+   * @see https://eslint.style/rules/array-bracket-newline
+   */
+  'custom/array-bracket-newline'?: Linter.RuleEntry<CustomArrayBracketNewline>
+  /**
    * Enforce that comments do not exceed column 80
    */
   'custom/comment-length-limit'?: Linter.RuleEntry<[]>
@@ -9530,6 +9535,11 @@ type ConsistentReturn = []|[{
 type ConsistentThis = string[]
 // ----- curly -----
 type Curly = ([]|["all"] | []|[("multi" | "multi-line" | "multi-or-nest")]|[("multi" | "multi-line" | "multi-or-nest"), "consistent"])
+// ----- custom/array-bracket-newline -----
+type CustomArrayBracketNewline = []|[(("always" | "never" | "consistent") | {
+  multiline?: boolean
+  minItems?: (number | null)
+})]
 // ----- default-case -----
 type DefaultCase = []|[{
   commentPattern?: string
