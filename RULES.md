@@ -12,9 +12,9 @@
 | Preset | Configs | Rules on | `error` | `warn` | Explicitly off |
 | --- | --- | --- | --- | --- | --- |
 | `minimal` | 13 | 170 | 160 | 10 | 8 |
-| `recommended` | 29 | 477 | 432 | 45 | 102 |
-| `strict` | 30 | 488 | 443 | 45 | 107 |
-| `library` | 30 | 488 | 443 | 45 | 107 |
+| `recommended` | 29 | 476 | 431 | 45 | 103 |
+| `strict` | 30 | 487 | 442 | 45 | 108 |
+| `library` | 30 | 487 | 442 | 45 | 108 |
 
 ## Rules
 
@@ -22,7 +22,7 @@ Severity shown is the last entry in config order. Rules marked `scoped` are
 only set inside configs restricted by `files` or `ignores`, so the severity
 applies to those globs rather than the whole project.
 
-491 enabled rule(s) have no entry in `src/meta/notes.ts`.
+490 enabled rule(s) have no entry in `src/meta/notes.ts`.
 
 | Rule | Module | Scope | `minimal` | `recommended` | `strict` | `library` | Note |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -496,7 +496,7 @@ applies to those globs rather than the whole project.
 | `unicorn/no-array-callback-reference` | unicorn | scoped | — | `error` | `error` | `error` |  |
 | `unicorn/no-array-for-each` | unicorn | scoped | — | `error` | `error` | `error` |  |
 | `unicorn/no-array-method-this-argument` | unicorn | scoped | — | `error` | `error` | `error` |  |
-| `unicorn/no-array-reduce` | unicorn | scoped | — | `error` | `error` | `error` |  |
+| `unicorn/no-array-reduce` | unicorn | scoped | — | — | — | — |  |
 | `unicorn/no-array-reverse` | unicorn | scoped | — | `error` | `error` | `error` |  |
 | `unicorn/no-array-sort` | unicorn | scoped | — | `error` | `error` | `error` |  |
 | `unicorn/no-await-expression-member` | unicorn | scoped | — | — | — | — |  |
