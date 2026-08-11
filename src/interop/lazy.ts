@@ -1,4 +1,35 @@
 import type {AnyParser, AnyPlugin, AnyProcessor, Awaitable, RuleOptions} from '../types';
+import {inspect} from 'node:util';
+
+const MAX_CAUSE_DEPTH = 8;
+
+/**
+ * Renders a cause chain into the thrown message.
+ *
+ * ESLint prints only `error.message` and `error.stack`, never `error.cause`, so
+ * a cause left on the property alone is invisible to the person running the
+ * lint — which is the whole reason these errors exist.
+ */
+const formatCause = ((cause: unknown): string => {
+  const lines: string[] = [];
+  let current = cause;
+
+  for(let depth = 0; ((current !== undefined) && (current !== null) && (depth < MAX_CAUSE_DEPTH)); depth++) {
+    if(current instanceof Error) {
+      lines.push(current.stack ?? `${current.name}: ${current.message}`);
+
+      current = current.cause;
+    } else {
+      lines.push(inspect(current));
+
+      break;
+    }
+  }
+
+  return ((lines.length === 0)
+    ? ''
+    : `\n\nCaused by:\n${lines.join('\n\nCaused by:\n')}`);
+});
 
 class MissingPeerError extends Error {
 
@@ -12,12 +43,100 @@ class MissingPeerError extends Error {
     super(
       ((`"${specifier}" is required by the ${feature} config but is not installed.\n`
         + `Install it, or disable the module:  { ${feature}: false }\n`)
-      + `    npm i -D ${specifier}`),
+      + `    npm i -D ${specifier}`
+      + formatCause(options?.cause)),
       options
     );
   }
 
 }
+
+/**
+ * Thrown when a peer is installed but importing it fails, e.g. because one of
+ * its* dependencies is unresolvable or its module graph throws on evaluation.
+ *
+ * Kept distinct from {@link MissingPeerError} so that a broken install is never
+ * reported as a missing one.
+ */
+class PeerLoadError extends Error {
+
+  public override name = 'PeerLoadError';
+
+  public constructor(
+    public readonly specifier: string,
+    public readonly feature: string,
+    options?: {cause?: unknown;}
+  ) {
+    super(
+      (`"${specifier}" resolves but could not be loaded by the ${feature} config.\n`
+        + 'This is a fault inside the package or its dependencies, not a missing install.'
+        + formatCause(options?.cause)),
+      options
+    );
+  }
+
+}
+
+const MODULE_NOT_FOUND_CODES: ReadonlySet<string> = (new Set([
+  'ERR_MODULE_NOT_FOUND',
+  'MODULE_NOT_FOUND'
+]));
+
+/**
+ * Whether `specifier` resolves from this package, or `undefined` when the host
+ * offers no `import.meta.resolve` to ask.
+ */
+const canResolve = ((specifier: string): (boolean | undefined) => {
+  // Absent on hosts older than Node 20.6, hence the widened annotation.
+  // eslint-disable-next-line @typescript-eslint/unbound-method -- Correct.
+  const resolve: (((specifier: string) => string) | undefined) = import.meta.resolve;
+
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- Correct.
+  if(resolve === undefined) {
+    return undefined;
+  }
+
+  try {
+    resolve(specifier);
+
+    return true;
+  } catch{
+    return false;
+  }
+});
+
+/**
+ * Whether a failed `import()` means `specifier` itself is absent, as opposed to
+ * something *inside* it being absent.
+ *
+ * A plugin's own dependencies fail with the same error code, so the specifier
+ * has to be resolved independently before blaming the caller's install.
+ */
+const isMissingModule = ((
+  err: unknown,
+  specifier: string
+): boolean => {
+  if(!(err instanceof Error)) {
+    return false;
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- Correct.
+  const code = (err as {code?: unknown;}).code;
+
+  if((typeof code !== 'string') || !MODULE_NOT_FOUND_CODES.has(code)) {
+    return false;
+  }
+
+  const resolvable = canResolve(specifier);
+
+  if(resolvable !== undefined) {
+    return !resolvable;
+  }
+
+  // Node and Bun both quote the offending specifier; a transitive failure
+  // quotes the inner one, and bare paths in the message are never quoted.
+  return (err.message.includes(`'${specifier}'`) || err.message.includes(`"${specifier}"`));
+});
 
 /** Unwraps a CommonJS interop default without unwrapping a plain object. */
 const interopDefault = (async <T>(
@@ -39,7 +158,12 @@ const load = (async(
   try {
     return (await interopDefault(import(/* @vite-ignore */ specifier)));
   } catch(err) {
-    throw (new MissingPeerError(specifier, feature, {cause: err}));
+    // Anything other than "no such module" is a fault in the peer itself, and
+    // reporting it as an uninstalled peer would send the user chasing an
+    // install that is already there.
+    throw (isMissingModule(err, specifier)
+      ? (new MissingPeerError(specifier, feature, {cause: err}))
+      : (new PeerLoadError(specifier, feature, {cause: err})));
   }
 });
 
@@ -103,6 +227,7 @@ const loadAll = (async(
 
 export {
   MissingPeerError,
+  PeerLoadError,
   interopDefault,
   loadPlugin,
   loadParser,
