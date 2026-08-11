@@ -5,16 +5,16 @@
 
 # Rule Inventory
 
-607 distinct rules are referenced across 4 presets.
+606 distinct rules are referenced across 4 presets.
 
 ## Summary
 
 | Preset | Configs | Rules on | `error` | `warn` | Explicitly off |
 | --- | --- | --- | --- | --- | --- |
 | `minimal` | 13 | 173 | 163 | 10 | 9 |
-| `recommended` | 29 | 487 | 446 | 41 | 105 |
-| `strict` | 30 | 497 | 453 | 44 | 110 |
-| `library` | 30 | 497 | 453 | 44 | 110 |
+| `recommended` | 29 | 487 | 446 | 41 | 104 |
+| `strict` | 30 | 497 | 453 | 44 | 109 |
+| `library` | 30 | 497 | 453 | 44 | 109 |
 
 ## Rules
 
@@ -319,7 +319,7 @@ applies to those globs rather than the whole project.
 | `regexp/sort-flags` | regexp | global | `error` | `error` | `error` | `error` |  |
 | `regexp/strict` | regexp | global | `error` | `error` | `error` | `error` |  |
 | `regexp/use-ignore-case` | regexp | global | `error` | `error` | `error` | `error` |  |
-| `@stylistic/array-bracket-newline` | stylistic | scoped | — | — | — | — |  |
+| `@stylistic/array-bracket-newline` | stylistic | scoped | — | `error` | `error` | `error` |  |
 | `@stylistic/array-bracket-spacing` | stylistic | scoped | — | `error` | `error` | `error` |  |
 | `@stylistic/array-element-newline` | stylistic | scoped | — | `error` | `error` | `error` |  |
 | `@stylistic/arrow-parens` | stylistic | scoped | — | `error` | `error` | `error` |  |
@@ -389,7 +389,6 @@ applies to those globs rather than the whole project.
 | `@stylistic/type-named-tuple-spacing` | stylistic | scoped | — | `error` | `error` | `error` |  |
 | `@stylistic/wrap-iife` | stylistic | scoped | — | `error` | `error` | `error` |  |
 | `@stylistic/yield-star-spacing` | stylistic | scoped | — | `error` | `error` | `error` |  |
-| `custom/array-bracket-newline` | stylistic | scoped | — | `error` | `error` | `error` |  |
 | `test/expect-expect` | test | scoped | `error` | `error` | `error` | `error` |  |
 | `test/no-commented-out-tests` | test | scoped | `error` | `error` | `error` | `error` |  |
 | `test/no-conditional-expect` | test | scoped | `error` | `error` | `error` | `error` |  |
@@ -760,17 +759,14 @@ applies to those globs rather than the whole project.
       "type": "natural"
     }
   ],
+  "@stylistic/array-bracket-newline": [
+    "consistent"
+  ],
   "@stylistic/array-bracket-spacing": [
     "never"
   ],
   "@stylistic/array-element-newline": [
-    {
-      "ArrayExpression": {
-        "minItems": 2,
-        "multiline": true
-      },
-      "ArrayPattern": "never"
-    }
+    "consistent"
   ],
   "@stylistic/arrow-parens": [
     "as-needed",
@@ -1053,12 +1049,6 @@ applies to those globs rather than the whole project.
     {
       "after": true,
       "before": false
-    }
-  ],
-  "custom/array-bracket-newline": [
-    {
-      "minItems": 2,
-      "multiline": true
     }
   ],
   "@typescript-eslint/ban-ts-comment": [
@@ -1169,17 +1159,14 @@ applies to those globs rather than the whole project.
       "type": "natural"
     }
   ],
+  "@stylistic/array-bracket-newline": [
+    "consistent"
+  ],
   "@stylistic/array-bracket-spacing": [
     "never"
   ],
   "@stylistic/array-element-newline": [
-    {
-      "ArrayExpression": {
-        "minItems": 2,
-        "multiline": true
-      },
-      "ArrayPattern": "never"
-    }
+    "consistent"
   ],
   "@stylistic/arrow-parens": [
     "as-needed",
@@ -1462,12 +1449,6 @@ applies to those globs rather than the whole project.
     {
       "after": true,
       "before": false
-    }
-  ],
-  "custom/array-bracket-newline": [
-    {
-      "minItems": 2,
-      "multiline": true
     }
   ],
   "@typescript-eslint/ban-ts-comment": [
@@ -1591,17 +1572,14 @@ applies to those globs rather than the whole project.
       "type": "natural"
     }
   ],
+  "@stylistic/array-bracket-newline": [
+    "consistent"
+  ],
   "@stylistic/array-bracket-spacing": [
     "never"
   ],
   "@stylistic/array-element-newline": [
-    {
-      "ArrayExpression": {
-        "minItems": 2,
-        "multiline": true
-      },
-      "ArrayPattern": "never"
-    }
+    "consistent"
   ],
   "@stylistic/arrow-parens": [
     "as-needed",
@@ -1884,12 +1862,6 @@ applies to those globs rather than the whole project.
     {
       "after": true,
       "before": false
-    }
-  ],
-  "custom/array-bracket-newline": [
-    {
-      "minItems": 2,
-      "multiline": true
     }
   ],
   "@typescript-eslint/ban-ts-comment": [
