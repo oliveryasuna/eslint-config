@@ -64,6 +64,8 @@ const react = (async(
           ...configRules(reactPlugin.configs?.['recommended-type-checked']),
           ...configRules(hooks.configs?.recommended),
 
+          '@eslint-react/exhaustive-deps': 'off',  // Redundant: handled by eslint-plugin-react-hooks
+
           ...(refreshPlugin && {
             'react-refresh/only-export-components': [
               'warn',
