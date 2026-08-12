@@ -23,7 +23,7 @@ const yaml = (async(
   return [
     {
       name: name('yaml', 'setup'),
-      plugins: {yaml: plugin}
+      plugins: {yml: plugin}
     },
     {
       name: name('yaml', 'rules'),
