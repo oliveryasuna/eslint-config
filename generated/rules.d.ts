@@ -6745,161 +6745,161 @@ export interface RuleOptions {
    */
   'wrap-regex'?: Linter.RuleEntry<[]>
   /**
-   * require or disallow block style mappings.
-   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/block-mapping.html
-   */
-  'yaml/block-mapping'?: Linter.RuleEntry<YamlBlockMapping>
-  /**
-   * enforce consistent line breaks after `:` indicator
-   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/block-mapping-colon-indicator-newline.html
-   */
-  'yaml/block-mapping-colon-indicator-newline'?: Linter.RuleEntry<YamlBlockMappingColonIndicatorNewline>
-  /**
-   * enforce consistent line breaks after `?` indicator
-   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/block-mapping-question-indicator-newline.html
-   */
-  'yaml/block-mapping-question-indicator-newline'?: Linter.RuleEntry<YamlBlockMappingQuestionIndicatorNewline>
-  /**
-   * require or disallow block style sequences.
-   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/block-sequence.html
-   */
-  'yaml/block-sequence'?: Linter.RuleEntry<YamlBlockSequence>
-  /**
-   * enforce consistent line breaks after `-` indicator
-   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/block-sequence-hyphen-indicator-newline.html
-   */
-  'yaml/block-sequence-hyphen-indicator-newline'?: Linter.RuleEntry<YamlBlockSequenceHyphenIndicatorNewline>
-  /**
-   * enforce YAML file extension
-   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/file-extension.html
-   */
-  'yaml/file-extension'?: Linter.RuleEntry<YamlFileExtension>
-  /**
-   * enforce consistent line breaks inside braces
-   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/flow-mapping-curly-newline.html
-   */
-  'yaml/flow-mapping-curly-newline'?: Linter.RuleEntry<YamlFlowMappingCurlyNewline>
-  /**
-   * enforce consistent spacing inside braces
-   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/flow-mapping-curly-spacing.html
-   */
-  'yaml/flow-mapping-curly-spacing'?: Linter.RuleEntry<YamlFlowMappingCurlySpacing>
-  /**
-   * enforce linebreaks after opening and before closing flow sequence brackets
-   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/flow-sequence-bracket-newline.html
-   */
-  'yaml/flow-sequence-bracket-newline'?: Linter.RuleEntry<YamlFlowSequenceBracketNewline>
-  /**
-   * enforce consistent spacing inside flow sequence brackets
-   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/flow-sequence-bracket-spacing.html
-   */
-  'yaml/flow-sequence-bracket-spacing'?: Linter.RuleEntry<YamlFlowSequenceBracketSpacing>
-  /**
-   * enforce consistent indentation
-   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/indent.html
-   */
-  'yaml/indent'?: Linter.RuleEntry<YamlIndent>
-  /**
-   * enforce naming convention to key names
-   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/key-name-casing.html
-   */
-  'yaml/key-name-casing'?: Linter.RuleEntry<YamlKeyNameCasing>
-  /**
-   * enforce consistent spacing between keys and values in mapping pairs
-   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/key-spacing.html
-   */
-  'yaml/key-spacing'?: Linter.RuleEntry<YamlKeySpacing>
-  /**
-   * disallow boolean mapping keys
-   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/no-boolean-key.html
-   */
-  'yaml/no-boolean-key'?: Linter.RuleEntry<[]>
-  /**
-   * disallow empty document
-   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/no-empty-document.html
-   */
-  'yaml/no-empty-document'?: Linter.RuleEntry<[]>
-  /**
-   * disallow empty mapping keys
-   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/no-empty-key.html
-   */
-  'yaml/no-empty-key'?: Linter.RuleEntry<[]>
-  /**
-   * disallow empty mapping values
-   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/no-empty-mapping-value.html
-   */
-  'yaml/no-empty-mapping-value'?: Linter.RuleEntry<[]>
-  /**
-   * disallow empty sequence entries
-   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/no-empty-sequence-entry.html
-   */
-  'yaml/no-empty-sequence-entry'?: Linter.RuleEntry<[]>
-  /**
-   * disallow irregular whitespace
-   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/no-irregular-whitespace.html
-   */
-  'yaml/no-irregular-whitespace'?: Linter.RuleEntry<YamlNoIrregularWhitespace>
-  /**
-   * disallow multiple empty lines
-   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/no-multiple-empty-lines.html
-   */
-  'yaml/no-multiple-empty-lines'?: Linter.RuleEntry<YamlNoMultipleEmptyLines>
-  /**
-   * disallow tabs for indentation.
-   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/no-tab-indent.html
-   */
-  'yaml/no-tab-indent'?: Linter.RuleEntry<[]>
-  /**
-   * disallow trailing whitespace at the end of lines
-   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/no-trailing-spaces.html
-   */
-  'yaml/no-trailing-spaces'?: Linter.RuleEntry<YamlNoTrailingSpaces>
-  /**
-   * disallow trailing zeros for floats
-   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/no-trailing-zeros.html
-   */
-  'yaml/no-trailing-zeros'?: Linter.RuleEntry<[]>
-  /**
-   * require or disallow plain style scalar.
-   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/plain-scalar.html
-   */
-  'yaml/plain-scalar'?: Linter.RuleEntry<YamlPlainScalar>
-  /**
-   * enforce the consistent use of either double, or single quotes
-   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/quotes.html
-   */
-  'yaml/quotes'?: Linter.RuleEntry<YamlQuotes>
-  /**
-   * disallow mapping keys other than strings
-   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/require-string-key.html
-   */
-  'yaml/require-string-key'?: Linter.RuleEntry<[]>
-  /**
-   * require mapping keys to be sorted
-   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/sort-keys.html
-   */
-  'yaml/sort-keys'?: Linter.RuleEntry<YamlSortKeys>
-  /**
-   * require sequence values to be sorted
-   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/sort-sequence-values.html
-   */
-  'yaml/sort-sequence-values'?: Linter.RuleEntry<YamlSortSequenceValues>
-  /**
-   * enforce consistent spacing after the `#` in a comment
-   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/spaced-comment.html
-   */
-  'yaml/spaced-comment'?: Linter.RuleEntry<YamlSpacedComment>
-  /**
-   * disallow parsing errors in Vue custom blocks
-   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/vue-custom-block/no-parsing-error.html
-   */
-  'yaml/vue-custom-block/no-parsing-error'?: Linter.RuleEntry<[]>
-  /**
    * Require or disallow spacing around the `*` in `yield*` expressions
    * @see https://eslint.org/docs/latest/rules/yield-star-spacing
    * @deprecated
    */
   'yield-star-spacing'?: Linter.RuleEntry<YieldStarSpacing>
+  /**
+   * require or disallow block style mappings.
+   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/block-mapping.html
+   */
+  'yml/block-mapping'?: Linter.RuleEntry<YmlBlockMapping>
+  /**
+   * enforce consistent line breaks after `:` indicator
+   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/block-mapping-colon-indicator-newline.html
+   */
+  'yml/block-mapping-colon-indicator-newline'?: Linter.RuleEntry<YmlBlockMappingColonIndicatorNewline>
+  /**
+   * enforce consistent line breaks after `?` indicator
+   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/block-mapping-question-indicator-newline.html
+   */
+  'yml/block-mapping-question-indicator-newline'?: Linter.RuleEntry<YmlBlockMappingQuestionIndicatorNewline>
+  /**
+   * require or disallow block style sequences.
+   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/block-sequence.html
+   */
+  'yml/block-sequence'?: Linter.RuleEntry<YmlBlockSequence>
+  /**
+   * enforce consistent line breaks after `-` indicator
+   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/block-sequence-hyphen-indicator-newline.html
+   */
+  'yml/block-sequence-hyphen-indicator-newline'?: Linter.RuleEntry<YmlBlockSequenceHyphenIndicatorNewline>
+  /**
+   * enforce YAML file extension
+   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/file-extension.html
+   */
+  'yml/file-extension'?: Linter.RuleEntry<YmlFileExtension>
+  /**
+   * enforce consistent line breaks inside braces
+   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/flow-mapping-curly-newline.html
+   */
+  'yml/flow-mapping-curly-newline'?: Linter.RuleEntry<YmlFlowMappingCurlyNewline>
+  /**
+   * enforce consistent spacing inside braces
+   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/flow-mapping-curly-spacing.html
+   */
+  'yml/flow-mapping-curly-spacing'?: Linter.RuleEntry<YmlFlowMappingCurlySpacing>
+  /**
+   * enforce linebreaks after opening and before closing flow sequence brackets
+   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/flow-sequence-bracket-newline.html
+   */
+  'yml/flow-sequence-bracket-newline'?: Linter.RuleEntry<YmlFlowSequenceBracketNewline>
+  /**
+   * enforce consistent spacing inside flow sequence brackets
+   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/flow-sequence-bracket-spacing.html
+   */
+  'yml/flow-sequence-bracket-spacing'?: Linter.RuleEntry<YmlFlowSequenceBracketSpacing>
+  /**
+   * enforce consistent indentation
+   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/indent.html
+   */
+  'yml/indent'?: Linter.RuleEntry<YmlIndent>
+  /**
+   * enforce naming convention to key names
+   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/key-name-casing.html
+   */
+  'yml/key-name-casing'?: Linter.RuleEntry<YmlKeyNameCasing>
+  /**
+   * enforce consistent spacing between keys and values in mapping pairs
+   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/key-spacing.html
+   */
+  'yml/key-spacing'?: Linter.RuleEntry<YmlKeySpacing>
+  /**
+   * disallow boolean mapping keys
+   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/no-boolean-key.html
+   */
+  'yml/no-boolean-key'?: Linter.RuleEntry<[]>
+  /**
+   * disallow empty document
+   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/no-empty-document.html
+   */
+  'yml/no-empty-document'?: Linter.RuleEntry<[]>
+  /**
+   * disallow empty mapping keys
+   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/no-empty-key.html
+   */
+  'yml/no-empty-key'?: Linter.RuleEntry<[]>
+  /**
+   * disallow empty mapping values
+   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/no-empty-mapping-value.html
+   */
+  'yml/no-empty-mapping-value'?: Linter.RuleEntry<[]>
+  /**
+   * disallow empty sequence entries
+   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/no-empty-sequence-entry.html
+   */
+  'yml/no-empty-sequence-entry'?: Linter.RuleEntry<[]>
+  /**
+   * disallow irregular whitespace
+   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/no-irregular-whitespace.html
+   */
+  'yml/no-irregular-whitespace'?: Linter.RuleEntry<YmlNoIrregularWhitespace>
+  /**
+   * disallow multiple empty lines
+   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/no-multiple-empty-lines.html
+   */
+  'yml/no-multiple-empty-lines'?: Linter.RuleEntry<YmlNoMultipleEmptyLines>
+  /**
+   * disallow tabs for indentation.
+   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/no-tab-indent.html
+   */
+  'yml/no-tab-indent'?: Linter.RuleEntry<[]>
+  /**
+   * disallow trailing whitespace at the end of lines
+   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/no-trailing-spaces.html
+   */
+  'yml/no-trailing-spaces'?: Linter.RuleEntry<YmlNoTrailingSpaces>
+  /**
+   * disallow trailing zeros for floats
+   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/no-trailing-zeros.html
+   */
+  'yml/no-trailing-zeros'?: Linter.RuleEntry<[]>
+  /**
+   * require or disallow plain style scalar.
+   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/plain-scalar.html
+   */
+  'yml/plain-scalar'?: Linter.RuleEntry<YmlPlainScalar>
+  /**
+   * enforce the consistent use of either double, or single quotes
+   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/quotes.html
+   */
+  'yml/quotes'?: Linter.RuleEntry<YmlQuotes>
+  /**
+   * disallow mapping keys other than strings
+   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/require-string-key.html
+   */
+  'yml/require-string-key'?: Linter.RuleEntry<[]>
+  /**
+   * require mapping keys to be sorted
+   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/sort-keys.html
+   */
+  'yml/sort-keys'?: Linter.RuleEntry<YmlSortKeys>
+  /**
+   * require sequence values to be sorted
+   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/sort-sequence-values.html
+   */
+  'yml/sort-sequence-values'?: Linter.RuleEntry<YmlSortSequenceValues>
+  /**
+   * enforce consistent spacing after the `#` in a comment
+   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/spaced-comment.html
+   */
+  'yml/spaced-comment'?: Linter.RuleEntry<YmlSpacedComment>
+  /**
+   * disallow parsing errors in Vue custom blocks
+   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/vue-custom-block/no-parsing-error.html
+   */
+  'yml/vue-custom-block/no-parsing-error'?: Linter.RuleEntry<[]>
   /**
    * Require or disallow "Yoda" conditions
    * @see https://eslint.org/docs/latest/rules/yoda
@@ -18225,61 +18225,66 @@ type ValidTypeof = []|[{
 type WrapIife = []|[("outside" | "inside" | "any")]|[("outside" | "inside" | "any"), {
   functionPrototypeMethods?: boolean
 }]
-// ----- yaml/block-mapping -----
-type YamlBlockMapping = []|[(("always" | "never") | {
+// ----- yield-star-spacing -----
+type YieldStarSpacing = []|[(("before" | "after" | "both" | "neither") | {
+  before?: boolean
+  after?: boolean
+})]
+// ----- yml/block-mapping -----
+type YmlBlockMapping = []|[(("always" | "never") | {
   singleline?: ("always" | "never" | "ignore")
   multiline?: ("always" | "never" | "ignore")
 })]
-// ----- yaml/block-mapping-colon-indicator-newline -----
-type YamlBlockMappingColonIndicatorNewline = []|[("always" | "never")]
-// ----- yaml/block-mapping-question-indicator-newline -----
-type YamlBlockMappingQuestionIndicatorNewline = []|[("always" | "never")]
-// ----- yaml/block-sequence -----
-type YamlBlockSequence = []|[(("always" | "never") | {
+// ----- yml/block-mapping-colon-indicator-newline -----
+type YmlBlockMappingColonIndicatorNewline = []|[("always" | "never")]
+// ----- yml/block-mapping-question-indicator-newline -----
+type YmlBlockMappingQuestionIndicatorNewline = []|[("always" | "never")]
+// ----- yml/block-sequence -----
+type YmlBlockSequence = []|[(("always" | "never") | {
   singleline?: ("always" | "never" | "ignore")
   multiline?: ("always" | "never" | "ignore")
 })]
-// ----- yaml/block-sequence-hyphen-indicator-newline -----
-type YamlBlockSequenceHyphenIndicatorNewline = []|[("always" | "never")]|[("always" | "never"), {
+// ----- yml/block-sequence-hyphen-indicator-newline -----
+type YmlBlockSequenceHyphenIndicatorNewline = []|[("always" | "never")]|[("always" | "never"), {
   nestedHyphen?: ("always" | "never")
   blockMapping?: ("always" | "never")
 }]
-// ----- yaml/file-extension -----
-type YamlFileExtension = []|[{
+// ----- yml/file-extension -----
+type YmlFileExtension = []|[{
   extension?: ("yaml" | "yml")
   caseSensitive?: boolean
 }]
-// ----- yaml/flow-mapping-curly-newline -----
-type YamlFlowMappingCurlyNewline = []|[(("always" | "never") | {
+// ----- yml/flow-mapping-curly-newline -----
+type YmlFlowMappingCurlyNewline = []|[(("always" | "never") | {
   multiline?: boolean
   minProperties?: number
   consistent?: boolean
 })]
-// ----- yaml/flow-mapping-curly-spacing -----
-type YamlFlowMappingCurlySpacing = []|[("always" | "never")]|[("always" | "never"), {
+// ----- yml/flow-mapping-curly-spacing -----
+type YmlFlowMappingCurlySpacing = []|[("always" | "never")]|[("always" | "never"), {
   arraysInObjects?: boolean
   objectsInObjects?: boolean
   emptyObjects?: ("ignore" | "always" | "never")
 }]
-// ----- yaml/flow-sequence-bracket-newline -----
-type YamlFlowSequenceBracketNewline = []|[(("always" | "never" | "consistent") | {
+// ----- yml/flow-sequence-bracket-newline -----
+type YmlFlowSequenceBracketNewline = []|[(("always" | "never" | "consistent") | {
   multiline?: boolean
   minItems?: (number | null)
 })]
-// ----- yaml/flow-sequence-bracket-spacing -----
-type YamlFlowSequenceBracketSpacing = []|[("always" | "never")]|[("always" | "never"), {
+// ----- yml/flow-sequence-bracket-spacing -----
+type YmlFlowSequenceBracketSpacing = []|[("always" | "never")]|[("always" | "never"), {
   singleValue?: boolean
   objectsInArrays?: boolean
   arraysInArrays?: boolean
 }]
-// ----- yaml/indent -----
-type YamlIndent = []|[number]|[number, {
+// ----- yml/indent -----
+type YmlIndent = []|[number]|[number, {
   indentBlockSequences?: boolean
   indicatorValueIndent?: number
   alignMultilineFlowScalars?: boolean
 }]
-// ----- yaml/key-name-casing -----
-type YamlKeyNameCasing = []|[{
+// ----- yml/key-name-casing -----
+type YmlKeyNameCasing = []|[{
   camelCase?: boolean
   PascalCase?: boolean
   SCREAMING_SNAKE_CASE?: boolean
@@ -18287,8 +18292,8 @@ type YamlKeyNameCasing = []|[{
   snake_case?: boolean
   ignores?: string[]
 }]
-// ----- yaml/key-spacing -----
-type YamlKeySpacing = []|[({
+// ----- yml/key-spacing -----
+type YmlKeySpacing = []|[({
   align?: (("colon" | "value") | {
     on?: ("colon" | "value")
     mode?: ("strict" | "minimum")
@@ -18333,36 +18338,36 @@ type YamlKeySpacing = []|[({
     afterColon?: boolean
   }
 })]
-// ----- yaml/no-irregular-whitespace -----
-type YamlNoIrregularWhitespace = []|[{
+// ----- yml/no-irregular-whitespace -----
+type YmlNoIrregularWhitespace = []|[{
   skipComments?: boolean
   skipQuotedScalars?: boolean
 }]
-// ----- yaml/no-multiple-empty-lines -----
-type YamlNoMultipleEmptyLines = []|[{
+// ----- yml/no-multiple-empty-lines -----
+type YmlNoMultipleEmptyLines = []|[{
   max: number
   maxEOF?: number
   maxBOF?: number
 }]
-// ----- yaml/no-trailing-spaces -----
-type YamlNoTrailingSpaces = []|[{
+// ----- yml/no-trailing-spaces -----
+type YmlNoTrailingSpaces = []|[{
   skipBlankLines?: boolean
   ignoreComments?: boolean
 }]
-// ----- yaml/plain-scalar -----
-type YamlPlainScalar = []|[("always" | "never")]|[("always" | "never"), {
+// ----- yml/plain-scalar -----
+type YmlPlainScalar = []|[("always" | "never")]|[("always" | "never"), {
   ignorePatterns?: string[]
   overrides?: {
     mappingKey?: ("always" | "never" | null)
   }
 }]
-// ----- yaml/quotes -----
-type YamlQuotes = []|[{
+// ----- yml/quotes -----
+type YmlQuotes = []|[{
   prefer?: ("double" | "single")
   avoidEscape?: boolean
 }]
-// ----- yaml/sort-keys -----
-type YamlSortKeys = ([{
+// ----- yml/sort-keys -----
+type YmlSortKeys = ([{
   pathPattern: string
   hasProperties?: string[]
   order: ((string | {
@@ -18410,8 +18415,8 @@ type YamlSortKeys = ([{
   minKeys?: number
   allowLineSeparatedGroups?: boolean
 }])
-// ----- yaml/sort-sequence-values -----
-type YamlSortSequenceValues = [{
+// ----- yml/sort-sequence-values -----
+type YmlSortSequenceValues = [{
   pathPattern: string
   order: ((string | {
     valuePattern?: string
@@ -18446,16 +18451,11 @@ type YamlSortSequenceValues = [{
   })
   minValues?: number
 })[]]
-// ----- yaml/spaced-comment -----
-type YamlSpacedComment = []|[("always" | "never")]|[("always" | "never"), {
+// ----- yml/spaced-comment -----
+type YmlSpacedComment = []|[("always" | "never")]|[("always" | "never"), {
   exceptions?: string[]
   markers?: string[]
 }]
-// ----- yield-star-spacing -----
-type YieldStarSpacing = []|[(("before" | "after" | "both" | "neither") | {
-  before?: boolean
-  after?: boolean
-})]
 // ----- yoda -----
 type Yoda = []|[("always" | "never")]|[("always" | "never"), {
   exceptRange?: boolean
